@@ -16,7 +16,9 @@ export QT_DIR=qt6
 # Deploy dependencies
 quick-sharun /usr/bin/kstars /usr/share/kstars /usr/share/sounds/KDE-*.ogg /usr/lib/libsecret*.so*
 
-# Additional changes can be done in between here
+# patching of hardcoded path ends up confusing the app badly
+cp /usr/bin/kstars ./AppDir/shared/bin
+ln -s . ./AppDir/usr
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
